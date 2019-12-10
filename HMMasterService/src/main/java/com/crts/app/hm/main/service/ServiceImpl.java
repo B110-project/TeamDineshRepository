@@ -13,9 +13,11 @@ import com.crts.app.hm.main.dto.BranchIdDto;
 import com.crts.app.hm.main.dto.BranchNameDto;
 import com.crts.app.hm.main.model.Address;
 import com.crts.app.hm.main.model.Branch;
+import com.crts.app.hm.main.model.User;
 import com.crts.app.hm.main.model.UserDetails;
 import com.crts.app.hm.main.repository.IbranchRepository;
 import com.crts.app.hm.main.repository.UserDetailsRepository;
+import com.crts.app.hm.main.repository.UserRepository;
 
 @Service
 public class ServiceImpl implements IService {
@@ -25,6 +27,9 @@ public class ServiceImpl implements IService {
 	
 	@Autowired
 	UserDetailsRepository ur;
+	
+	@Autowired
+	UserRepository userR;
 
 	public BranchAllDto getBranchById(int id) {
 		System.out.println("BAD" + id);
@@ -119,6 +124,44 @@ public class ServiceImpl implements IService {
 		ur.save(u);
 		List<UserDetails>ul=(List<UserDetails>) ur.findAll();
 		return ul;
+	}
+
+	//user Crud
+	@Override
+	public User getUserl(int id) {
+		User us=userR.findById(id).get();
+		return us;
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		List<User> usl=(List<User>) userR.findAll();
+		return usl;
+	}
+
+	@Override
+	public User addUser(User u) {
+		User  ur=userR.save(u);
+		return ur;
+	}
+
+	@Override
+	public User editUser(int id) {
+		User urr=userR.findById(id).get();
+		return urr;
+	}
+
+	@Override
+	public void deleteUser(int Id) {
+		userR.deleteById(Id);
+		
+	}
+
+	@Override
+	public List<User> updateUser(User u) {
+		userR.save(u);
+		List<User>upl=(List<User>) userR.findAll();
+		return upl;
 	}
 
 }

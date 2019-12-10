@@ -7,6 +7,7 @@ import com.crts.app.hm.main.dto.BranchAllDto;
 import com.crts.app.hm.main.dto.BranchIdDto;
 import com.crts.app.hm.main.dto.BranchNameDto;
 import com.crts.app.hm.main.model.Branch;
+import com.crts.app.hm.main.model.User;
 import com.crts.app.hm.main.model.UserDetails;
 
 public interface IService {
@@ -32,6 +33,22 @@ public UserDetails getUserDetail(int id);
 
 	
 	public List<UserDetails> updateUserDetails(UserDetails u);
+	
+	//User Methods
+	
+public User getUserl(int id);
+	
+	public List<User> getAllUser();
+	
+	public User addUser(User u);
+	
+	public User editUser(int id);
+	
+	public  void deleteUser(int Id);
+
+	
+	public List<User> updateUser(User u);
+	
 	
 	
 	

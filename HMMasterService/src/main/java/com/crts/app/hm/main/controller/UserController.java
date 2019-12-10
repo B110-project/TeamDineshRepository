@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.crts.app.hm.main.model.User;
 import com.crts.app.hm.main.model.UserDetails;
 import com.crts.app.hm.main.service.IService;
 
@@ -54,6 +55,48 @@ public class UserController {
 	{
 		sf.deleteUserDetails(e.getUserDetailsId());
 	}
+	
+	
+	// User Mapping 
+	
+	@RequestMapping(value = "/getsingleuserad")
+	public User getUser(@RequestBody User er)
+	{
+		User eru=sf.getUserl(er.getUserId());
+		return eru;
+	}
+	@RequestMapping(value = "/getalluserad")
+	public List<User> getAllUserAd()
+	{
+		List<User> el=sf.getAllUser();
+		return el;
+	}
+	@RequestMapping(value = "/adduserdetailsad")
+	public User addUserAd(@RequestBody User u)
+	{
+		User uu=sf.addUser(u);
+		return uu ;
+	}
+	@RequestMapping(value = "/edituserdetailsad")
+	public User EditUserDetailsAd(@RequestBody User u)
+	{
+		User ee=sf.editUser(u.getUserId());
+		return ee;
+	}
+	
+	@RequestMapping(value = "/updateuserdeatailsad")
+	public List<User> updateUserDetailsAd(@RequestBody User e)
+	{
+		List<User> el=sf.updateUser(e);
+		return el;
+	}
+	@RequestMapping(value = "/deleteuserdetailsad")
+	public  void deleteUserAd(@RequestBody User e)
+	{
+		sf.deleteUser(e.getUserId());
+	}
+
+	
 
 	
 	
