@@ -2,7 +2,17 @@ package com.crts.app.hm.main.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+@Entity
 public class PersonalDetails {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int personalDetailsId;
 	private String firstName;
 	private String middleName;
@@ -21,8 +31,10 @@ public class PersonalDetails {
 	private int numberOfChildren;
 	private String employmentType;
 	private String purposeOfLoan;
+	@OneToOne (cascade = CascadeType.ALL)
 	private Address customerAddress;
-	private List<PreviousLoanDetails> previousLoans;
+	@OneToOne (cascade = CascadeType.ALL)
+	private PreviousLoanDetails previousLoans;
 
 	public int getPersonalDetailsId() {
 		return personalDetailsId;
@@ -176,11 +188,11 @@ public class PersonalDetails {
 		this.customerAddress = customerAddress;
 	}
 
-	public List<PreviousLoanDetails> getPreviousLoans() {
+	public PreviousLoanDetails getPreviousLoans() {
 		return previousLoans;
 	}
 
-	public void setPreviousLoans(List<PreviousLoanDetails> previousLoans) {
+	public void setPreviousLoans(PreviousLoanDetails previousLoans) {
 		this.previousLoans = previousLoans;
 	}
 

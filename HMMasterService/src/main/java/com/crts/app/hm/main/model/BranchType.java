@@ -1,13 +1,19 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class BranchType {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private int branchTypeId;;
 	private String regional;
 	private String headOffice;
-	private StatusMaster branchTypeStatus;
+	private int branchTypeStatus;
 
 	public int getBranchTypeId() {
 		return branchTypeId;
@@ -33,11 +39,12 @@ public class BranchType {
 		this.headOffice = headOffice;
 	}
 
-	public StatusMaster getBranchTypeStatus() {
+	
+	public int getBranchTypeStatus() {
 		return branchTypeStatus;
 	}
 
-	public void setBranchTypeStatus(StatusMaster branchTypeStatus) {
+	public void setBranchTypeStatus(int branchTypeStatus) {
 		this.branchTypeStatus = branchTypeStatus;
 	}
 

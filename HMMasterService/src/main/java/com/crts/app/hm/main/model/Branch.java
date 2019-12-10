@@ -1,14 +1,25 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
+@Entity
 public class Branch {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int branchId;
 	private String branchName;
 	private int branchCode;
 	private int stateCode;
 	private int districtCode;
-	private StatusMaster branchStatus;
+	private int branchStatus;
+	@OneToOne(cascade = CascadeType.ALL)
+
 	private Address branchAddress;
 	private long branchContactNo;
 
@@ -52,11 +63,11 @@ public class Branch {
 		this.districtCode = districtCode;
 	}
 
-	public StatusMaster getBranchStatus() {
+	public int getBranchStatus() {
 		return branchStatus;
 	}
 
-	public void setBranchStatus(StatusMaster branchStatus) {
+	public void setBranchStatus(int branchStatus) {
 		this.branchStatus = branchStatus;
 	}
 

@@ -1,11 +1,20 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
+@Entity
 public class User {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	private String username;
 	private String password;
+	@OneToOne(cascade = CascadeType.ALL)
 	private Role userRole;
 	private String branchCode;
 

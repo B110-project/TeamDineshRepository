@@ -1,7 +1,16 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class CustomerBankDetails 
 {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int customerBankDetailsId;
 	private String bankName;
 	private String bankIFSC;
@@ -9,6 +18,7 @@ public class CustomerBankDetails
 	private String customerBranchName;
 	private String customerBranchCode;
 	private String customerBankId;
+	
 	public int getCustomerBankDetailsId() {
 		return customerBankDetailsId;
 	}

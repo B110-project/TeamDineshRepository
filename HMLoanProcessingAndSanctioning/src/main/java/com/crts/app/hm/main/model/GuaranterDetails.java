@@ -2,12 +2,26 @@ package com.crts.app.hm.main.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+@Entity
 public class GuaranterDetails {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int guarenterDetailsId;
+	@OneToOne (cascade = CascadeType.ALL)
 	private PersonalDetails guranterPersonal;
+	@OneToOne (cascade = CascadeType.ALL)
 	private FamilyDetails guranterFamily;
-	private List<PreviousLoanDetails> guranterPreviousLoans;
+	@OneToOne (cascade = CascadeType.ALL)
+	private PreviousLoanDetails guranterPreviousLoans;
 	private String guranterRelationToCustomer;
+	@OneToOne (cascade = CascadeType.ALL)
 	private DocumentDetails gurenterDocs;
 
 	public int getGuarenterDetailsId() {
@@ -34,11 +48,11 @@ public class GuaranterDetails {
 		this.guranterFamily = guranterFamily;
 	}
 
-	public List<PreviousLoanDetails> getGuranterPreviousLoans() {
+	public PreviousLoanDetails getGuranterPreviousLoans() {
 		return guranterPreviousLoans;
 	}
 
-	public void setGuranterPreviousLoans(List<PreviousLoanDetails> guranterPreviousLoans) {
+	public void setGuranterPreviousLoans(PreviousLoanDetails guranterPreviousLoans) {
 		this.guranterPreviousLoans = guranterPreviousLoans;
 	}
 

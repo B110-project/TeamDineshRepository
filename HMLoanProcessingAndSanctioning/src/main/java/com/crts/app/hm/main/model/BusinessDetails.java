@@ -1,13 +1,25 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class BusinessDetails 
 {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int businessDetailsId;
 	private double annualIncome;
 	private String firmName;
 	private double otherIncome;
 	private String registrationNo;
 	private String firmType;
+	@OneToOne (cascade = CascadeType.ALL)
 	private Address firmAddress;
 	
 	

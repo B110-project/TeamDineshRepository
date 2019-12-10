@@ -1,9 +1,17 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
+@Entity
 public class UserDetails {
-	
-	private User userId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int userDetailsId;
 	private String userFirstName;
 	private String userMiddleName;
 	private String userLastName;
@@ -12,14 +20,17 @@ public class UserDetails {
 	private String userEmailId;
 	private String userGender;
 	private String userHighestQualification;
+	@OneToOne(cascade = CascadeType.ALL)
 	private Address userAddress;
 
-	public User getUserId() {
-		return userId;
+	
+
+	public int getUserDetailsId() {
+		return userDetailsId;
 	}
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUserDetailsId(int userDetailsId) {
+		this.userDetailsId = userDetailsId;
 	}
 
 	public String getUserFirstName() {
@@ -96,10 +107,12 @@ public class UserDetails {
 
 	@Override
 	public String toString() {
-		return "UserDetails [userId=" + userId + ", userFirstName=" + userFirstName + ", userMiddleName="
+		return "UserDetails [userDetailsId=" + userDetailsId + ", userFirstName=" + userFirstName + ", userMiddleName="
 				+ userMiddleName + ", userLastName=" + userLastName + ", userMobileNo=" + userMobileNo + ", userDob="
 				+ userDob + ", userEmailId=" + userEmailId + ", userGender=" + userGender
 				+ ", userHighestQualification=" + userHighestQualification + ", userAddress=" + userAddress + "]";
 	}
+
+	
 
 }

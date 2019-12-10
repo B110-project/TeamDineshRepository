@@ -1,12 +1,18 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class State {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int stateId;
 	private String stateName;
 	private int stateCode;
-	private StatusMaster stateStatus;
+	private int stateStatus;
 
 	public int getStateId() {
 		return stateId;
@@ -32,11 +38,11 @@ public class State {
 		this.stateCode = stateCode;
 	}
 
-	public StatusMaster getStateStatus() {
+	public int getStateStatus() {
 		return stateStatus;
 	}
 
-	public void setStateStatus(StatusMaster stateStatus) {
+	public void setStateStatus(int stateStatus) {
 		this.stateStatus = stateStatus;
 	}
 

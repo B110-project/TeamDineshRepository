@@ -12,7 +12,7 @@ public class HmZuulServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HmZuulServerApplication.class, args);
-		System.out.println("zuul-starter");
+		System.out.println("zuul-starter ");
 	}
 
 }

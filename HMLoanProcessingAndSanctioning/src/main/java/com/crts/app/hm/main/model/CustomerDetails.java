@@ -2,13 +2,28 @@ package com.crts.app.hm.main.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+@Entity
 public class CustomerDetails 
 {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int customerId;
+	@OneToOne (cascade = CascadeType.ALL)
 	private FamilyDetails customerFamily;
+	@OneToOne (cascade = CascadeType.ALL)
 	private PersonalDetails customerPersonal;
-	private List<PreviousLoanDetails> customerPreviousLoans;
+	@OneToOne (cascade = CascadeType.ALL)
+	private PreviousLoanDetails customerPreviousLoans;
+	@OneToOne (cascade = CascadeType.ALL)
 	private DocumentDetails customerDocs;
+	@OneToOne (cascade = CascadeType.ALL)
 	private CustomerBankDetails bankDetails;
 	
 	public int getCustomerId() {
@@ -30,10 +45,10 @@ public class CustomerDetails
 		this.customerPersonal = customerPersonal;
 	}
 	
-	public List<PreviousLoanDetails> getCustomerPreviousLoans() {
+	public PreviousLoanDetails getCustomerPreviousLoans() {
 		return customerPreviousLoans;
 	}
-	public void setCustomerPreviousLoans(List<PreviousLoanDetails> customerPreviousLoans) {
+	public void setCustomerPreviousLoans(PreviousLoanDetails customerPreviousLoans) {
 		this.customerPreviousLoans = customerPreviousLoans;
 	}
 	public DocumentDetails getCustomerDocs() {

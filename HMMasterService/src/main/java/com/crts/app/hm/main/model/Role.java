@@ -1,14 +1,18 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-
-
+@Entity
 public class Role {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private int roleId;
 	private String roleName;
-	private StatusMaster roleStatus;
+	private int roleStatus;
 
 	public int getRoleId() {
 		return roleId;
@@ -26,11 +30,11 @@ public class Role {
 		this.roleName = roleName;
 	}
 
-	public StatusMaster getRoleStatus() {
+	public int getRoleStatus() {
 		return roleStatus;
 	}
 
-	public void setRoleStatus(StatusMaster roleStatus) {
+	public void setRoleStatus(int roleStatus) {
 		this.roleStatus = roleStatus;
 	}
 

@@ -1,7 +1,18 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Enquiry
 {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int enquiryId;
 	private String firstName;
 	private String middleName;
@@ -17,8 +28,11 @@ public class Enquiry
 	private double loanAmount;
 	private String loanType;
 	private String employmentType;
+	@OneToOne (cascade = CascadeType.ALL)
 	private Address address;
+	@OneToOne (cascade = CascadeType.ALL)
 	private SalariedDetails salaried;
+	@OneToOne (cascade = CascadeType.ALL)
 	private BusinessDetails business;
 	public int getEnquiryId() {
 		return enquiryId;

@@ -1,7 +1,18 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class SalariedDetails 
 {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int salariedId;
 	private double grossSalary;
 	private double takeHomeSalary;
@@ -9,6 +20,7 @@ public class SalariedDetails
 	private String organizationName;
 	private float totalWorkingExperience;
 	private float currentExperience;
+	@OneToOne (cascade = CascadeType.ALL)
 	private Address organizationAddress;
 	public int getSalariedId() {
 		return salariedId;

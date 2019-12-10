@@ -1,11 +1,17 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class LoanType {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int loanTypeId;
 	private String loanTypeName;
-	private StatusMaster loanTypeStatus;
+	private int loanTypeStatus;
 
 	public int getLoanTypeId() {
 		return loanTypeId;
@@ -23,11 +29,11 @@ public class LoanType {
 		this.loanTypeName = loanTypeName;
 	}
 
-	public StatusMaster getLoanTypeStatus() {
+	public int getLoanTypeStatus() {
 		return loanTypeStatus;
 	}
 
-	public void setLoanTypeStatus(StatusMaster loanTypeStatus) {
+	public void setLoanTypeStatus(int loanTypeStatus) {
 		this.loanTypeStatus = loanTypeStatus;
 	}
 

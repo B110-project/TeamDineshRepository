@@ -1,13 +1,22 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
+@Entity
 public class District {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int districtId;
 	private String districtName;
 	private int districtCode;
+	@OneToOne(cascade = CascadeType.ALL)
 	private State stateCode;
-	private StatusMaster districtStatus;
+	private int districtStatus;
 
 	public int getDistrictId() {
 		return districtId;
@@ -41,11 +50,11 @@ public class District {
 		this.stateCode = stateCode;
 	}
 
-	public StatusMaster getDistrictStatus() {
+	public int getDistrictStatus() {
 		return districtStatus;
 	}
 
-	public void setDistrictStatus(StatusMaster districtStatus) {
+	public void setDistrictStatus(int districtStatus) {
 		this.districtStatus = districtStatus;
 	}
 

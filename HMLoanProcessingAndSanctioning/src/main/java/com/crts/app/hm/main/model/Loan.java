@@ -1,7 +1,18 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Loan 
 {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int loanId;
 	private double loanAmount;
 	private float rateOfInterest;
@@ -15,6 +26,7 @@ public class Loan
 	private String loanNo;
 	private String loanType;
 	private int status;
+	@OneToOne (cascade = CascadeType.ALL)
 	private CustomerDetails customerDetails;
 	public int getLoanId() {
 		return loanId;

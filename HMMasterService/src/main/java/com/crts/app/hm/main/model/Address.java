@@ -1,8 +1,16 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 
 public class Address {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private int addressId;
 	private String city;
@@ -75,4 +83,3 @@ public class Address {
 	}
 
 }
-

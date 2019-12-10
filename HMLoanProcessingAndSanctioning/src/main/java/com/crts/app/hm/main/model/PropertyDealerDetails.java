@@ -1,13 +1,25 @@
 package com.crts.app.hm.main.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class PropertyDealerDetails {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int propertyDealerId;
 	private String dealerName;
 	private long dealerMobileNo;
 	private String dealerEmailId;
 	private String dealerAccountNo;
 	private String dealerAccountType;
+	@OneToOne (cascade = CascadeType.ALL)
 	private Address dealerAddress;
 	private String dealerCode;
 	public int getPropertyDealerId() {
