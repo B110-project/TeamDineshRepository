@@ -11,7 +11,7 @@ public class HomeController {
 	{
 		
 		System.out.println("IN LOAN DISBURSEMENT PROCESS");
-		return "hey hello";
+		return "GET LDP";
 	}
 
 }

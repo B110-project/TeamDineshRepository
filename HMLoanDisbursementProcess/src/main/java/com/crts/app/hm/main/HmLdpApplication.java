@@ -12,7 +12,7 @@ public class HmLdpApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HmLdpApplication.class, args);
-		System.out.println("cliect ready");
+		System.out.println("LDP STARTED");
 	}
 	@LoadBalanced
 	@Bean

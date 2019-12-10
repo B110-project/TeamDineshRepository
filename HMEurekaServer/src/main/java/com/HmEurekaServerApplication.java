@@ -9,7 +9,7 @@ public class HmEurekaServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HmEurekaServerApplication.class, args);
-		System.out.println("server-stater");
+		System.out.println("EUREKA server-stater");
 	}
 
 }
